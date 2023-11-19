@@ -9,6 +9,7 @@ import coil.load
 import java.text.SimpleDateFormat
 import java.util.Date
 
+//xml 파일에 속성으로 사용할 수 있게 Binding을 함
 @BindingAdapter("visible")
 fun View.setVisible(isShow: Boolean) {
     isVisible = isShow

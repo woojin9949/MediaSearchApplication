@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
 
     private val searchFragment = SearchFragment()
     private val fragmentList = listOf(searchFragment, FavoriteFragment())
-    private val adapter = ViewPagerAdapter(this, fragmentList)
+    private val viewPagerAdapter = ViewPagerAdapter(this, fragmentList)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater).apply {
             setContentView(root)
             view = this@MainActivity
-            viewPager.adapter = adapter
+            viewPager.adapter = viewPagerAdapter
 
             TabLayoutMediator(tabLayout, viewPager) { tab, positon ->
                 tab.text = if (fragmentList[positon] is SearchFragment) {

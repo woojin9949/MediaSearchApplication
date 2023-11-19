@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
 
+//ViewPager Fragment 설정
 class ViewPagerAdapter(
     fa:FragmentActivity,
     private val list: List<Fragment>

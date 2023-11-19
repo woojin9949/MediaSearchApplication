@@ -31,6 +31,7 @@ class SearchFragment : Fragment() {
         }
     }
 
+    //Destroy시 null 초기화
     override fun onDestroyView() {
         super.onDestroyView()
         binding = null
