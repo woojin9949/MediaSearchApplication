@@ -37,4 +37,7 @@ class SearchFragment : Fragment() {
         binding = null
     }
 
+    fun searchKeyword(text: String) {
+
+    }
 }
