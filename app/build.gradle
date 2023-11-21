@@ -3,6 +3,9 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
 }
+// 프로퍼티 선언하고, 저장한 키값을 불러옴
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
 
 android {
     namespace 'woojin.projects.mediasearchapplication'
@@ -16,6 +19,8 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField "String", "KAKAO_REST_API_KEY", properties['kakao_rest_api_key']
     }
 
     buildTypes {
@@ -33,7 +38,9 @@ android {
     }
     buildFeatures {
         dataBinding = true
+        buildConfig = true
     }
+
 }
 
 dependencies {
@@ -53,6 +60,10 @@ dependencies {
     implementation 'com.squareup.retrofit2:adapter-rxjava3:2.9.0'
     implementation 'io.reactivex.rxjava3:rxkotlin:3.0.1'
 
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.6.2'
+    implementation 'androidx.fragment:fragment-ktx:1.6.2'
+
+    //implementation 'com.kakao.sdk:'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
